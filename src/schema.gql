@@ -1,0 +1,57 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: Int!
+  name: String!
+  email: String!
+}
+
+type Post {
+  id: Int!
+  title: String!
+  content: String
+  published: Boolean
+  author: User
+}
+
+type Query {
+  users: [User!]!
+  post(id: Int!): Post!
+  posts(skip: Int, take: Int, cursor: PostWhereUniqueInput, where: PostWhereInput, orderBy: PostOrderByWithRelationInput): [Post!]!
+}
+
+input PostWhereUniqueInput {
+  id: Int!
+}
+
+input PostWhereInput {
+  id: Int
+}
+
+input PostOrderByWithRelationInput {
+  id: Int
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User!
+  createPost(data: CreatePostInput!): Post!
+  updatePost(id: Int!, data: UpdatePostInput!): Post!
+  deletePost(id: Int!): Post!
+}
+
+input CreatePostInput {
+  title: String!
+  content: String
+  published: Boolean
+  authorId: Float
+}
+
+input UpdatePostInput {
+  title: String
+  content: String
+  published: Boolean
+  authorId: Float
+  id: Int!
+}
